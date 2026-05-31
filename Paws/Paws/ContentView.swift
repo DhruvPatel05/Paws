@@ -32,19 +32,19 @@ struct ContentView: View {
                         ForEach(pets) { pet in
                             NavigationLink(value:pet) {
                                 VStack {
-                                    if let imagedata = pet.photo {
-                                        if let petImage = UIImage(data: imagedata) {
-                                Image(uiImage: petImage)
-                                            
-                                        }
-                                        
-                                    } else {
-                                      Image(systemName: "pawprint.circle")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .padding(40)
-                                            .foregroundStyle(.quaternary)
-                                    }
+                                    if let imageData = pet.photo,
+                                          let petImage = UIImage(data: imageData) {
+                                           Image(uiImage: petImage)
+                                               .resizable()
+                                               .scaledToFit()
+                                               .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                       } else {
+                                           Image(systemName: "pawprint.circle")
+                                               .resizable()
+                                               .scaledToFit()
+                                               .padding(40)
+                                               .foregroundStyle(.quaternary)
+                                       }
                                     Spacer()
                                     Text(pet.name)
                                         .font(.title.weight(.light))
