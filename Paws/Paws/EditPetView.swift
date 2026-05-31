@@ -15,7 +15,18 @@ struct EditPetView: View {
             // MARK: - IMAGE
             
             // MARK: - Photo Picker
-        }
+            
+            
+            // MARK: - Text Field
+            TextField("Name",text: $pet.name)
+                .textFieldStyle(.roundedBorder)
+                .font(.largeTitle.weight(.light))
+                .padding(.vertical)
+            
+            // MARK: - Button
+            
+        } // MARK: FORM
+        
         .listStyle(.plain)
         .navigationTitle("Edit \(pet.name)")
         .navigationBarTitleDisplayMode(.inline)
