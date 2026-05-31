@@ -24,7 +24,17 @@ struct EditPetView: View {
                 .padding(.vertical)
             
             // MARK: - Button
-            
+            Button {
+                
+            } label: {
+                Text("Save")
+                    .font(.title3.weight(.medium))
+                    .padding(8)
+                    .frame(minWidth: 0,maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .listRowSeparator(.hidden)
+            .padding(.bottom)
         } // MARK: FORM
         
         .listStyle(.plain)
