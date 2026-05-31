@@ -13,7 +13,15 @@ struct EditPetView: View {
     var body: some View {
         Form {
             // MARK: - IMAGE
-            
+            if let imageData = pet.photo {
+                if let petImage = UIImage(data: imageData) {
+                    Image(uiImage: petImage)
+                }
+            } else {
+                CustomContentUnavailableView(icon: "pawprint.circle",
+                                             title: "No Photo", description: "Add a photo of your favourite pet to make it easier to find them.")
+                .padding(.top)
+            }
             // MARK: - Photo Picker
             
             
