@@ -7,15 +7,30 @@
 
 import SwiftUI
 import SwiftData
+import PhotosUI
 
 struct EditPetView: View {
     @Bindable var pet: Pet
+    @State private var photosPicketItem:PhotosPickerItem?
+    
     var body: some View {
         Form {
+            // MARK: - PhotosPicker
+            PhotosPicker(selection:$photosPicketItem,matching: .images){
+                Label("Select a Photo", systemImage: "photo.badge.plus")
+                    .frame(minWidth: 0,maxWidth: .infinity)
+            }
+            .listRowSeparator(.hidden)
+            
             // MARK: - IMAGE
             if let imageData = pet.photo {
                 if let petImage = UIImage(data: imageData) {
                     Image(uiImage: petImage)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .circular))
+                        .frame(minWidth:0,maxWidth:.infinity,minHeight: 0,maxHeight: 300)
+                        .padding(.top)
                 }
             } else {
                 CustomContentUnavailableView(icon: "pawprint.circle",
@@ -48,6 +63,11 @@ struct EditPetView: View {
         .listStyle(.plain)
         .navigationTitle("Edit \(pet.name)")
         .navigationBarTitleDisplayMode(.inline)
+        .onChange(of: photosPicketItem){
+            Task {
+                pet.photo = try? await photosPicketItem?.loadTransferable(type: Data.self)
+            }
+        }
         }
 }
 
