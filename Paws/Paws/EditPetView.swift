@@ -10,6 +10,7 @@ import SwiftData
 import PhotosUI
 
 struct EditPetView: View {
+    @Environment(\.dismiss) private var dismiss
     @Bindable var pet: Pet
     @State private var photosPicketItem:PhotosPickerItem?
     
@@ -37,9 +38,6 @@ struct EditPetView: View {
                                              title: "No Photo", description: "Add a photo of your favourite pet to make it easier to find them.")
                 .padding(.top)
             }
-            // MARK: - Photo Picker
-            
-            
             // MARK: - Text Field
             TextField("Name",text: $pet.name)
                 .textFieldStyle(.roundedBorder)
@@ -48,7 +46,7 @@ struct EditPetView: View {
             
             // MARK: - Button
             Button {
-                
+                dismiss()
             } label: {
                 Text("Save")
                     .font(.title3.weight(.medium))
@@ -63,6 +61,7 @@ struct EditPetView: View {
         .listStyle(.plain)
         .navigationTitle("Edit \(pet.name)")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
         .onChange(of: photosPicketItem){
             Task {
                 pet.photo = try? await photosPicketItem?.loadTransferable(type: Data.self)
