@@ -22,8 +22,8 @@ The app allows users to create pet profiles, attach photos, edit information, an
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="./IMG_7725.PNG" width="220"/>
-  <img src="./IMG_7726.PNG" width="220"/>
+  <img src="Screenshots/IMG_7725.PNG" width="220"/>
+  <img src="Screenshots/IMG_7726.PNG" width="220"/>
 </p>
 
 <p align="center">
@@ -35,8 +35,8 @@ The app allows users to create pet profiles, attach photos, edit information, an
 <br>
 
 <p align="center">
-  <img src="./IMG_7727.PNG" width="220"/>
-  <img src="./IMG_7728.PNG" width="220"/>
+  <img src="Screenshots/IMG_7727.PNG" width="220"/>
+  <img src="Screenshots/IMG_7728.PNG" width="220"/>
 </p>
 
 <p align="center">
@@ -48,7 +48,7 @@ The app allows users to create pet profiles, attach photos, edit information, an
 <br>
 
 <p align="center">
-  <img src="./IMG_7729.PNG" width="220"/>
+  <img src="Screenshots/IMG_7729.PNG" width="220"/>
 </p>
 
 <p align="center">
